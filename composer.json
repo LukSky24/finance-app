@@ -1,0 +1,19 @@
+{
+    "require": {
+        "symfony/framework-bundle": "^7.3",
+        "symfony/console": "^7.3",
+        "symfony/runtime": "^7.3",
+        "symfony/orm-pack": "^2.4",
+        "doctrine/doctrine-migrations-bundle": "^3.4",
+        "symfony/uid": "^7.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/runtime": true
+        }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.64",
+        "doctrine/doctrine-fixtures-bundle": "^4.1"
+    }
+}
