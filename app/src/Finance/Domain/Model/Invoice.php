@@ -14,7 +14,7 @@ class Invoice
         private Uuid $id,
         private string $number,
         private Uuid $contractorId,
-        private int $amount,
+        private Money $amount,
         private bool $paid,
         private \DateTimeImmutable $dueDate
     ) {
@@ -26,7 +26,7 @@ class Invoice
     public function getId(): Uuid { return $this->id; }
     public function getNumber(): string { return $this->number; }
     public function getContractorId(): Uuid { return $this->contractorId; }
-    public function getAmount(): int { return $this->amount; }
+    public function getAmount(): Money { return $this->amount; }
     public function isPaid(): bool { return $this->paid; }
     public function getDueDate(): \DateTimeImmutable { return $this->dueDate; }
 
