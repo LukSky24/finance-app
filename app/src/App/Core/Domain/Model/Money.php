@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Core\Domain\Model;
+
 final class Money
 {
     private const string DEFAULT_CURRENCY = 'PLN';
