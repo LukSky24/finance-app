@@ -1,0 +1,45 @@
+<?php
+
+declare(strict_types=1);
+
+use Symfony\Component\Uid\Uuid;
+
+class Warning
+{
+    private \DateTimeImmutable $createdAt;
+    private \DateTimeImmutable $updatedAt;
+    private ?\DateTimeImmutable $deletedAt = null;
+
+    public function __construct(
+        private Uuid $id,
+        private string $subjectType, // e.g. "contractor", "invoice", "budget"
+        private string $subjectId,   // stored as string UUID for simplicity
+        private string $category     // e.g. "contractor_overdue_sum_exceeded"
+    )
+    {
+        $now = new \DateTimeImmutable();
+        $this->createdAt = $now;
+        $this->updatedAt = $now;
+    }
+
+    public function getId(): Uuid { return $this->id; }
+    public function getSubjectType(): string { return $this->subjectType; }
+    public function getSubjectId(): string { return $this->subjectId; }
+    public function getCategory(): string { return $this->category; }
+
+    public function refresh(): void
+    {
+        $this->updatedAt = new \DateTimeImmutable();
+    }
+
+    public function close(): void
+    {
+        $this->deletedAt = new \DateTimeImmutable();
+        $this->updatedAt = $this->deletedAt;
+    }
+
+    public function isClosed(): bool
+    {
+        return $this->deletedAt !== null;
+    }
+}
