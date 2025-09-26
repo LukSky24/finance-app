@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Finance\Domain\Model;
 
-use App\Core\Domain\Model\Money;
 use Symfony\Component\Uid\Uuid;
+use App\Core\Domain\Model\Money;
 
 class Invoice
 {

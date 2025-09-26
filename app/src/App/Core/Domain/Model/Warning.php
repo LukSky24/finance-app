@@ -14,9 +14,9 @@ class Warning
 
     public function __construct(
         private Uuid $id,
-        private string $subjectType, // e.g. "contractor", "invoice", "budget"
-        private string $subjectId,   // stored as string UUID for simplicity
-        private string $category     // e.g. "contractor_overdue_sum_exceeded"
+        private string $subjectType,
+        private string $subjectId,
+        private string $category
     )
     {
         $now = new \DateTimeImmutable();

@@ -23,6 +23,7 @@ class Contractor
 
     public function getId(): Uuid { return $this->id; }
     public function getName(): string { return $this->name; }
+
     public function rename(string $newName): void
     {
         $this->name = $newName;
